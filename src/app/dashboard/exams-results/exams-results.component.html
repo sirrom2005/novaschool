@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">MY EXAM RESULTS</div>
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th class="text-center"></th>
+                        <th>Exam</th>
+                        <th class="text-center">Grade</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Date Completed</th>
+                        <!--th class="text-center">Actions</th-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let data of examsResults">
+                        <td class="text-center text-muted"></td>
+                        <td>
+                            <div class="widget-content p-0">
+                                <div class="widget-content-wrapper">                          
+                                    <div class="widget-content-left flex2">
+                                        <div class="widget-heading">{{data.subject}}</div>
+                                        <div class="widget-subheading opacity-7">{{data.teacher}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center"><div class="badge badge-warning">{{data.grade}}%</div></td>
+                        <td class="text-center">{{data.exam_type}}</td>
+                        <td class="text-center">{{data.date_completed}}</td>
+                        <!--td class="text-center">
+                            <a href="#{{data.id}}" class="btn btn-primary btn-sm">Retry</a>
+                        </td-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template [ngIf]="examsResults.length==0">
+                <div class="d-block text-center card-footer">NO EXAM RESULTS</div>
+            </ng-template>
+            <ng-template [ngIf]="examsResults.length>0">
+                <div class="d-block text-center card-footer">&nbsp;</div>
+            </ng-template>
+        </div>
+    </div>
+</div>
